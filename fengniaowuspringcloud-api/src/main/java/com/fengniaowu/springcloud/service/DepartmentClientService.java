@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.fengniaowu.springcloud.entities.Department;
 import com.fengniaowu.springcloud.fallbackfactory.DepartmentClientServiceFallbackFatory;
 
-@FeignClient(value = "FENGNIAOWUSPRINGCLOUD",fallbackFactory=DepartmentClientServiceFallbackFatory.class)
+@FeignClient(value = "FENGNIAOWUSPRINGCLOUD-DEPARTMENT",fallbackFactory=DepartmentClientServiceFallbackFatory.class)
 public interface DepartmentClientService {
 
 	@RequestMapping(value = "/department/get/{id}", method = RequestMethod.GET)

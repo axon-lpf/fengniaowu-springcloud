@@ -1,17 +1,121 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
+
 <mapper namespace="com.fengniaowu.springcloud.dao.ApartmentDao">
- 
-  <select id="createAsync" resultType="Apartment" parameterType="Long">
-   select deptno,dname,db_source from dept where deptno=#{deptno}; 
-  </select>
-  <select id="findAll" resultType="Department">
-   select deptno,dname,db_source from dept; 
-  </select>
-  <insert id="addDept" parameterType="Department">
-   INSERT INTO dept(dname,db_source) VALUES(#{dname},DATABASE());
-  </insert>
+
+	<select id="getApartmentAsync" resultType="Apartment">
+		SELECT * FROM
+		[dbo].[KC.Fengniaowu.Talos.Apartments]
+		Where
+		ApartmentId=#{apartmentId}
+		and Enabled=1
+	</select>
+
+	<select id="getApartmentByIdAsync" resultType="Apartment">
+		SELECT * FROM
+		[dbo].[KC.Fengniaowu.Talos.Apartments]
+		Where
+		Id=#{id}
+		and Enabled=1
+	</select>
+
+	<select id="apartmentProjectIdAsync" resultType="Apartment">
+		SELECT * FROM
+		[dbo].[KC.Fengniaowu.Talos.Apartments]
+		Where
+		ApartmentId=#{apartmentId}
+		and ProjectId=#{projectId} AND
+		Enabled=1
+	</select>
+
+	<insert id="createAsync" parameterType="Apartment"
+		useGeneratedKeys="true" keyProperty="Id">
+		INSERT INTO
+		[dbo].[KC.Fengniaowu.Talos.Apartments] (
+		[ActorId],
+		[ApartmentId],
+		[AssetTenancyId],
+		[ApartmentName],
+		[DistrictId],
+		[Address],
+		[TrafficMethod],
+		[SupportFacilities],
+		[Pictures],
+		[Contacts],
+		[CompanyName],
+		[CompanyNumber],
+		[Enabled],
+		[CreateTime],
+		[UpdateTime],
+		[FullName],
+		[RetailPrice],
+		[ApartmentType],
+		[VillageId],
+		[CompanyId],
+		[OuterId],
+		[DailyRetailPrice],
+		[ProjectId]
+		)
+		VALUES
+		(
+		#{ActorId},
+		#{ApartmentId},
+		#{AssetTenancyId},
+		#{ApartmentName},
+		#{DistrictId},
+		#{Address},
+		#{TrafficMethod},
+		#{SupportFacilities},
+		#{Pictures},
+		#{Contacts},
+		#{CompanyName},
+		#{CompanyNumber},
+		#{Enabled},
+		#{CreateTime},
+		#{UpdateTime},
+		#{FullName},
+		#{RetailPrice},
+		#{ApartmentType},
+		#{VillageId},
+		#{CompanyId},
+		#{OuterId},
+		#{DailyRetailPrice},
+		#{ProjectId}
+		)
+	</insert>
+
+	<update id="updateEnabledAsync" useGeneratedKeys="true"
+		keyProperty="apartmentId">
+		UPDATE [dbo].[KC.Fengniaowu.Talos.Apartments]
+		SET
+		[Enabled]=#{enabled}
+		WHERE
+		[ApartmentId]=#{apartmentId}
+	</update>
+
+	<update id="setApartmentConfigAsync"  useGeneratedKeys="true"
+		keyProperty="apartmentId">
+		UPDATE
+		[dbo].[KC.Fengniaowu.Talos.Apartments]
+		SET
+		[CompanyName]=#{companyName},
+		[CompanyNumber]=#{companyNumber}
+		WHERE
+		[ApartmentId]=#{apartmentId}
+	</update>
+
+	<update id="removeApartmentConfigAsync"  useGeneratedKeys="true"
+		keyProperty="apartmentId">
+		UPDATE
+		[dbo].[KC.Fengniaowu.Talos.Apartments]
+		SET
+		[CompanyName]=null,
+		[CompanyNumber]=null
+		WHERE
+		[ApartmentId]=#{apartmentId}
+	</update>
+	
+
 </mapper>
  

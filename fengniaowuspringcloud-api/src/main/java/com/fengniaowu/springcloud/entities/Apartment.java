@@ -1,6 +1,6 @@
 package com.fengniaowu.springcloud.entities;
 
-
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -8,84 +8,67 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Apartment extends BaseEntitiy {
 
-    /// <summary>
-    ///     ¹«Ô¢Id
-    /// </summary>
-    public String ApartmentId ;
-
-    /// <summary>
-    ///     ×Ê²úÉÌ»§Id
-    /// </summary>
-    public String AssetTenancyId ;
-
-    /// <summary>
-    ///     ¹«Ô¢¼ò³Æ
-    /// </summary>
-    public String ApartmentName ;
-
-    /// <summary>
-    ///     ¹«Ô¢È«³Æ
-    /// </summary>
-    public String FullName ;
-
-    /// <summary>
-    ///     ÇøÓòId
-    /// </summary>
-    public String DistrictId ;
-
-    /// <summary>
-    ///     ¹«Ô¢µØÖ·
-    /// </summary>
-    public String Address ;
-
-    /// <summary>
-    ///     ½»Í¨³öĞĞ
-    /// </summary>
-    public String TrafficMethod ;
-
-    /// <summary>
-    ///     ÖÜ±ßÅäÌ×ÉèÊ©
-    /// </summary>
-    public String SupportFacilities ;
-
-    /// <summary>
-    ///     ¹«Ô¢Í¼Æ¬ Ê¹ÓÃ','·Ö¸ô¸½¼şId
-    /// </summary>
-    public String Pictures ;
-
-    /// <summary>
-    ///     ÁªÏµ·½Ê½£¬¶ÔÍâÁªÏµÊ¹ÓÃ
-    /// </summary>
-    public String Contacts ;
-
-    /// <summary>
-    ///     ¹«Ë¾Ãû³Æ£¬ÓÃÓÚºÏÍ¬Ç©Êğ
-    /// </summary>
-    public String CompanyName ;
-
-    /// <summary>
-    ///     ¹«Ë¾Ö¤¼şºÅ£¬ÓÃÓÚºÏÍ¬Ç©Êğ
-    /// </summary>
-    public String CompanyNumber ;
-
-    /// <summary>
-    ///     ÔÂ×âÆ½¾ùÃÅÊĞ¼Û
-    /// </summary>
-    public long RetailPrice ;
-
-    /// <summary>
-    ///     ÈÕ×âÆ½¾ùÃÅÊĞ¼Û
-    /// </summary>
-    public long DailyRetailPrice ;
-
-    /// <summary>
-    ///     ÏîÄ¿Id
-    /// </summary>
-    public String ProjectId ;
-
-    /// <summary>
-    ///     ¹«Ô¢ÀàĞÍ£¨¼¯ÖĞ£¬·ÖÉ¢£©
-    /// </summary>
-    public String ApartmentType ;
+	@ApiModelProperty(value = "Id", required = false)
+	public Long Id;
 	
+	@ApiModelProperty(value = "actorId", required = false)
+	public String ActorId;
+
+	@ApiModelProperty(value = "å…¬å¯“Id", required = false)
+	public String ApartmentId;
+
+	@ApiModelProperty(value = "å•†æˆ¶Id", required = true)
+	public String AssetTenancyId;
+
+	@ApiModelProperty(value = "å…¬å¯“ç®€ç§°", required = true)
+	public String ApartmentName;
+
+	@ApiModelProperty(value = "å…¬å¯“å…¨ç§°", required = true)
+	public String FullName;
+
+	@ApiModelProperty(value = "åœ°åŒºId", required = false)
+	public String DistrictId;
+
+	@ApiModelProperty(value = "åœ°å€", required = false)
+	public String Address;
+
+	@ApiModelProperty(value = "å…¬å¯“ç±»å‹", required = false)
+	public String TrafficMethod;
+
+	@ApiModelProperty(value = "å…¬å¯“ç±»å‹", required = false)
+	public String SupportFacilities;
+
+	@ApiModelProperty(value = "å…¬å¯“å›¾ç‰‡", required = false)
+	public String Pictures;
+
+	@ApiModelProperty(value = "=è”ç³»æ–¹å¼", required = false)
+	public String Contacts;
+
+	@ApiModelProperty(value = "å…¬å¸åç§°", required = false)
+	public String CompanyName;
+
+	@ApiModelProperty(value = "å…¬å¯“ç±»å‹", required = false)
+	public String CompanyNumber;
+
+	@ApiModelProperty(value = "å…¬å¯“æœˆç§Ÿå•ä»·", required = false)
+	public long RetailPrice;
+
+	@ApiModelProperty(value = "å…¬å¯“æ—¥ç§Ÿå•ä»·", required = false)
+	public long DailyRetailPrice;
+
+	@ApiModelProperty(value = "é¡¹ç›®Id", required = false)
+	public String ProjectId;
+
+	@ApiModelProperty(value = "å…¬å¯“ç±»å‹", required = false)
+	public String ApartmentType;
+	
+	@ApiModelProperty(value = "é¡¹ç›®Id", required = false)
+	public String VillageId;
+	
+	@ApiModelProperty(value = "å…¬å¸Id", required = false)
+	public String CompanyId;
+	
+	@ApiModelProperty(value = "å…¬å¸Id", required = false)
+	public String OuterId;
+
 }

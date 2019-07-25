@@ -1,9 +1,9 @@
 package com.fengniaowu.springcloud.service.impl;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fengniaowu.springcloud.dao.ApartmentDao;
 import com.fengniaowu.springcloud.entities.Apartment;
 import com.fengniaowu.springcloud.service.ApartmentService;
 
@@ -11,65 +11,82 @@ import com.fengniaowu.springcloud.service.ApartmentService;
 public class ApartmentServiceimpl implements ApartmentService {
 
 	@Autowired
-    private ApartmentService _apartmentService;
-	
-	@Override
-	public Apartment createAsync(String apartmentId, Apartment createApartment, boolean enabled) {
-		// TODO Auto-generated method stub
-		return _apartmentService.createAsync(apartmentId, createApartment, enabled);
-	}
-
-	@Override
-	public void clearCacheAsync(String apartmentId) {
-		// TODO Auto-generated method stub
-	    _apartmentService.clearCacheAsync(apartmentId);
-		
-	}
+	private ApartmentDao _apartmentDao;
 
 	@Override
 	public Apartment getApartmentAsync(String apartmentId) {
 		// TODO Auto-generated method stub
-		return _apartmentService.getApartmentAsync(apartmentId);
+		return _apartmentDao.getApartmentAsync(apartmentId);
 	}
 
 	@Override
-	public Apartment updateAsync(String apartmentId, Apartment apartment) {
+	public Apartment getApartmentByIdAsync(Long id) {
 		// TODO Auto-generated method stub
-		return _apartmentService.updateAsync(apartmentId, apartment);
+		return _apartmentDao.getApartmentByIdAsync(id);
 	}
 
 	@Override
 	public Apartment apartmentProjectIdAsync(String apartmentId, String projectId) {
 		// TODO Auto-generated method stub
-		return _apartmentService.apartmentProjectIdAsync(apartmentId, projectId);
+		return _apartmentDao.apartmentProjectIdAsync(apartmentId, projectId);
 	}
 
 	@Override
-	public void updateEnabledAsync(String apartmentId, boolean enabled) {
+	public Long createAsync(Apartment createApartment) {
 		// TODO Auto-generated method stub
-		_apartmentService.updateEnabledAsync(apartmentId, enabled);
+		return _apartmentDao.createAsync(createApartment);
 	}
 
 	@Override
-	public Apartment apartmentConfigAsync(String apartmentId, String companyName, String companyNumber) {
+	public int updateEnabledAsync(String apartmentId, boolean enabled) {
 		// TODO Auto-generated method stub
-		return _apartmentService.apartmentConfigAsync(apartmentId, companyName, companyNumber);
-		
+		return _apartmentDao.updateEnabledAsync(apartmentId, enabled);
 	}
 
 	@Override
-	public Apartment removeApartmentConfigAsync(String apartmentId) {
-		// TODO Auto-generated method stub
-		return _apartmentService.removeApartmentConfigAsync(apartmentId);
+	public int setApartmentConfigAsync(String apartmentId, String companyName, String companyNumber) {
+																																								// method stub
+		return _apartmentDao.setApartmentConfigAsync(apartmentId, companyName, companyNumber);
+
 	}
 
 	@Override
-	public boolean createRoomsAsync(String apartmentId, String beginFloor, String endFloor, int roomCount,
-			String decorationType, long retailPrice, long dailyRetailPrice) {
-		// TODO Auto-generated method stub
-		return _apartmentService.createRoomsAsync(apartmentId, beginFloor, endFloor, roomCount, decorationType, retailPrice, dailyRetailPrice);
+	public int removeApartmentConfigAsync(String apartmentId) {
+		// TODO Auto-generated method stub return
+		return _apartmentDao.removeApartmentConfigAsync(apartmentId);
 	}
 
+	/*
+	 * @Override public void clearCacheAsync(String apartmentId) { // TODO
+	 * Auto-generated method stub _apartmentDao.clearCacheAsync(apartmentId);
+	 * 
+	 * }
+	 */
 
+	/*
+	 * @Override public Apartment updateAsync(Apartment apartment) { // TODO
+	 * Auto-generated method stub return _apartmentDao.updateAsync(apartment); }
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * @Override public Apartment apartmentConfigAsync(String apartmentId, String
+	 * companyName, String companyNumber) { // TODO Auto-generated method stub
+	 * return _apartmentDao.apartmentConfigAsync(apartmentId, companyName,
+	 * companyNumber);
+	 * 
+	 * }
+	 * 
+	 * @Override public Apartment removeApartmentConfigAsync(String apartmentId) {
+	 * // TODO Auto-generated method stub return
+	 * _apartmentDao.removeApartmentConfigAsync(apartmentId); }
+	 * 
+	 * @Override public boolean createRoomsAsync(String apartmentId, String
+	 * beginFloor, String endFloor, int roomCount, String decorationType, long
+	 * retailPrice, long dailyRetailPrice) { // TODO Auto-generated method stub
+	 * return _apartmentDao.createRoomsAsync(apartmentId, beginFloor, endFloor,
+	 * roomCount, decorationType, retailPrice, dailyRetailPrice); }
+	 */
 
 }
