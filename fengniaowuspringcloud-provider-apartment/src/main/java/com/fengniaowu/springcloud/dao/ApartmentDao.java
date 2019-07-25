@@ -58,7 +58,7 @@ public interface ApartmentDao {
 	/*
 	 * 	移除公寓配置信息
 	 */
-	public int removeApartmentConfigAsync(String apartmentId);
+	public int removeApartmentConfigAsync(@Param("apartmentId")String apartmentId);
 	/**
 	 * 更新公寓
 	 * 
